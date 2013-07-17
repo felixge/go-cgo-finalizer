@@ -13,7 +13,7 @@ import (
 
 const (
 	loopSize = 10000
-	sampleSize = 1000
+	sampleSize = 100
 )
 var (
 	rUsage syscall.Rusage
@@ -24,8 +24,8 @@ var (
 
 func main() {
 	fmt.Printf("sample\trss_mb\tallocs\tfrees\n")
-	for sample := 1; sample < sampleSize; sample++ {
-		for i := 0; i <= loopSize; i++ {
+	for sample := 1; sample <= sampleSize; sample++ {
+		for i := 0; i < loopSize; i++ {
 			a := NewAllocator(10*1024)
 			_ = a
 		}
